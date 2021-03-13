@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       
-      <UserList></UserList>
+      <UserList/>
     </>
   );
 }
