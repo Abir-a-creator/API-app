@@ -1,10 +1,23 @@
-import React from 'react'
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 
-export const UserList = () => {
+const UserList = ()=>{
+const [userList, setUserList] = useState([])
+        
+
+useEffect(()=>{
+    axios({
+        method : 'GET',
+        url: `https://jsonplaceholder.typicode.com/users`}).then(res=> {
+        setUserList(res.data)
+            })}, [])
+       
     return (
-        <div>
-      
-        </div>
+        <>
+       {userList.map(user=>{ return <h1>{user.name}</h1>
+       })}
+        </>
     )
 }
 
+export default UserList;
